@@ -1,0 +1,41 @@
+phantom:
+    extensions:
+        Tonic\Behat\ParallelScenarioExtension: ~
+        emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension:
+            name: html
+            renderer: Twig,Behat2
+            file_name: index
+        Behat\MinkExtension:
+            base_url: http://localhost:8080/#!/
+            selenium2:
+                    wd_host: "http://localhost:8643/wd/hub"
+    translation:
+        locale: pt
+    formatters:
+            pretty: true
+            html:
+                  output_path: %paths.base%/resultados
+    autoload:
+            - %paths.base%/bootstrap/
+selenium:
+    extensions:
+        Tonic\Behat\ParallelScenarioExtension: ~
+        emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension:
+            name: html
+            renderer: Twig,Behat2
+            file_name: index
+        Behat\MinkExtension:
+            base_url: http://localhost:8080/#!/
+            javascript_session: selenium2
+            browser_name: firefox
+            selenium2:
+                browser: "firefox"
+                capabilities: { "browser": "firefox"}
+    translation:
+        locale: pt
+    formatters:
+            pretty: true
+            html:
+                  output_path: %paths.base%/resultados
+    autoload:
+            - %paths.base%/bootstrap/
