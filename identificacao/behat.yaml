@@ -1,0 +1,22 @@
+default:
+    extensions:
+        Tonic\Behat\ParallelScenarioExtension: ~
+        emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension:
+            name: html
+            renderer: Twig,Behat2
+            file_name: index
+            print_args: true
+            print_outp: true
+            loop_break: true
+        Behat\MinkExtension:
+            base_url: http://localhost:8080/#!/
+            selenium2:
+                    wd_host: "http://localhost:8643/wd/hub"
+    translation:
+        locale: pt
+    formatters:
+            pretty: true
+            html:
+                  output_path: %paths.base%/resultados
+    autoload:
+            - %paths.base%/bootstrap/
